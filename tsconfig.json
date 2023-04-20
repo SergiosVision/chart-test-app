@@ -25,6 +25,7 @@
       "@pages/*": ["./pages/*"],
       "@assets/*": ["./assets/*"],
       "@common/*": ["./common/*"],
+      "@types/*": ["./types/*"],
       "@modules/*": ["./modules/*"],
       "@services/*": ["./services/*"],
       "@utils/*": ["./common/utils/*"],
