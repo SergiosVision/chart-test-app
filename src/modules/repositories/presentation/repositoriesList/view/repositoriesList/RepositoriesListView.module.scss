@@ -1,0 +1,7 @@
+.wrapper {
+  @apply flex flex-col w-full gap-6;
+}
+
+.title {
+  @apply text-3xl text-center uppercase;
+}

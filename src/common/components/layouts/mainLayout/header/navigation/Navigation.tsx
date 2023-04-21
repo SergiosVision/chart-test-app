@@ -10,8 +10,7 @@ const Navigation: React.FC = () => {
 	return (
 		<nav className={styles.navigation}>
 			<ul>
-				<NavigationItem to={routes.home}>Home</NavigationItem>
-				<NavigationItem to={routes.repositories}>Repositories</NavigationItem>
+				<NavigationItem to={routes.home}>Repositories</NavigationItem>
 			</ul>
 		</nav>
 	)

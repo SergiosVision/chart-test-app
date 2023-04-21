@@ -1,5 +1,5 @@
 .logo {
-  @apply transition-colors ease-in-out;
+  @apply transition-colors ease-in-out uppercase;
 
   &:hover {
     color: theme('colors.primary');

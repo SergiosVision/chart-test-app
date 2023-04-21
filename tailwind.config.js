@@ -1,11 +1,8 @@
-const plugin = require('tailwindcss/plugin')
+
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: [
-		'./pages/**/*.{js,ts,jsx,tsx}',
-		'./app/components/**/*.{js,ts,jsx,tsx}'
-	],
+	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: {
 		extend: {
 			colors: {
@@ -13,27 +10,11 @@ module.exports = {
 				primary: '#FF7652',
 				purple: '#6C4ECF',
 				'light-blue': '#32A8E2',
-				gray: {
-					400: '#9898AD',
-					500: '#6B6B7B',
-					600: '#5B5B6B',
-					800: '#353340',
-					900: '#272532'
-				},
 				background: '#1f1d2b'
 			},
 			boxShadow: {
 				DEFAULT: '0 3px 12px rgba(0, 0, 0, 0.6)',
 				md: '0 3px 12px rgba(0, 0, 0, 0.1)'
-			},
-			keyframes: {
-				fade: {
-					from: { opacity: 0 },
-					to: { opacity: 1 }
-				},
-			},
-			animation: {
-				fade: 'fade .5s ease-in-out',
 			},
 			fontSize: {
 				xs: '.9rem',
@@ -52,16 +33,6 @@ module.exports = {
 		}
 	},
 	plugins: [
-		plugin(({ addComponents }) => {
-			addComponents({
-				'.shadow-block': {
-					display: 'block',
-					boxShadow:
-						'0 10px 15px -3px rgba(0 0 0 / 0.1), 0 4px 6px -4px rgba(0 0 0 / 0.1)',
-					animation: 'scaleIn .35s ease-in-out',
-					backgroundColor: '#272532'
-				},
-			})
-		})
+		require('@tailwindcss/line-clamp')
 	]
 }
