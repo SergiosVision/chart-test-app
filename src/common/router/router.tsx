@@ -4,7 +4,7 @@ import MainLayout from '@components/layouts/mainLayout/MainLayout'
 
 import NotFound from '@pages/notFound/NotFound';
 import Repositories from '@pages/repositories/Repositories'
-import RepositoryDetails from '@pages/repositories/RepositoryDetails'
+import RepositoryDetails from '@pages/repositories/repositoryDetails/RepositoryDetails'
 
 import routes from './routes'
 

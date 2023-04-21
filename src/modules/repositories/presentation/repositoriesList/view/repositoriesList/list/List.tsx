@@ -1,13 +1,15 @@
 import {FC} from 'react'
 
+import BaseErrorText from '@components/ui/typography/BaseErrorText'
+
 import Card from '../card/Card'
 import styles from './List.module.scss'
 import Skeletons from '../skeletons/Skeletons'
-import {IRepositoriesListOutputModel} from '../../../../../domain/models/repositoriesList/repositoriesListOutput/interfaces'
+import {RepositoriesListOutputModel} from '../../../../../domain/models/repositoriesList/repositoriesListOutput/RepositoriesListOutputModel'
 
 interface Props {
 	isLoading: boolean
-	list: IRepositoriesListOutputModel[]
+	list: RepositoriesListOutputModel[]
 }
 
 const List: FC<Props> = ({ list, isLoading }) => {
@@ -17,7 +19,7 @@ const List: FC<Props> = ({ list, isLoading }) => {
 	}
 
 	if (!list.length) {
-		return <h3 className='text-3xl text-center text-primary'>List of repositories is empty</h3>
+		return <BaseErrorText>List of repositories is empty</BaseErrorText>
 	}
 
 	return (
@@ -26,7 +28,8 @@ const List: FC<Props> = ({ list, isLoading }) => {
 				<Card
 					key={item?.id || index}
 					id={item?.id}
-					title={item?.name}
+					name={item?.name}
+					ownerName={item?.owner?.login}
 					description={item?.description}
 					imageUrl={item?.owner?.avatar_url}
 				/>

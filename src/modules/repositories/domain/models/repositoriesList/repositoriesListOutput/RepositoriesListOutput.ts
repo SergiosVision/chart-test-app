@@ -1,29 +1,12 @@
-import {boolean, number, object, string} from 'yup'
+import {StringOrNull, ValueOrNull} from '@common/types/interfaces/common'
 
-import {Model} from '@utils/model'
+import {IOwner} from '../../interfaces/owner'
 
-import {IRepositoriesListOutputModel} from './interfaces'
-
-export class RepositoriesListOutputModel extends Model<IRepositoriesListOutputModel> {
-	get defaults () {
-		return {
-			id: null,
-			watchers: 0,
-			name: null,
-			private: false,
-			description: null,
-			owner: null
-		}
-	}
-
-	getSchema () {
-		return object().shape({
-			watchers: number(),
-			private: boolean(),
-			id: string().nullable(),
-			name: string().nullable(),
-			description: string().nullable(),
-			owner: object().nullable()
-		})
-	}
+export interface IRepositoriesListOutputModel {
+	id: StringOrNull
+	watchers: number
+	name: StringOrNull
+	private: boolean
+	description: StringOrNull
+	owner: ValueOrNull<IOwner>
 }

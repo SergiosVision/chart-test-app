@@ -1,5 +1,6 @@
 import {FC, useEffect} from 'react'
 import {observer} from 'mobx-react-lite'
+import {useErrorBoundary} from 'react-error-boundary'
 
 import {RepositoriesListViewModel} from './viewModel'
 import RepositoriesListView from './view/RepositoriesListView'
@@ -9,11 +10,17 @@ interface Props {
 }
 
 const ViewController: FC<Props> = ({ viewModel }) => {
+    const {showBoundary} = useErrorBoundary()
+
     useEffect(() => {
         (async () => {
-            await viewModel.getRepositoriesList()
+            try {
+                await viewModel.getRepositoriesList()
+            } catch (error) {
+                showBoundary(error)
+            }
         })()
-    }, [viewModel])
+    }, [])
 
     return (
       <RepositoriesListView

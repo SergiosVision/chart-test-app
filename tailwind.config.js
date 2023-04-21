@@ -1,5 +1,3 @@
-
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: ['./src/**/*.{js,jsx,ts,tsx}'],
@@ -10,7 +8,8 @@ module.exports = {
 				primary: '#FF7652',
 				purple: '#6C4ECF',
 				'light-blue': '#32A8E2',
-				background: '#1f1d2b'
+				background: '#1f1d2b',
+				backgroundSecondary: '#424244'
 			},
 			boxShadow: {
 				DEFAULT: '0 3px 12px rgba(0, 0, 0, 0.6)',

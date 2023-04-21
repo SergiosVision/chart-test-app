@@ -1,12 +1,9 @@
 import {ObjectSchema, object} from 'yup'
-import defaultsDeep from 'lodash/defaultsDeep'
 
 import { ValidationError } from '@utils/exception'
 
-export class Model<T = {[key: string]: any}> {
-	constructor(attributes: T) {
-		defaultsDeep(this, attributes, this.defaults)
-
+export class Model {
+	constructor() {
 		this.validate()
 	}
 
@@ -14,7 +11,7 @@ export class Model<T = {[key: string]: any}> {
 		return {}
 	}
 
-	validate () {
+	private validate () {
 		const schema = this.getSchema()
 
 		if (!schema) {

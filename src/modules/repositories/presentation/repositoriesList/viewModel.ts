@@ -1,26 +1,26 @@
 import {makeObservable, observable} from 'mobx'
 
+import {ValueOrNull} from '@common/types/interfaces/common'
+
 import {GetRepositoriesListCase} from '../../domain/usecases/getRepositoriesListCase'
-import {IRepositoriesListOutputModel} from '../../domain/models/repositoriesList/repositoriesListOutput/interfaces'
+import {RepositoriesListOutputModel} from '../../domain/models/repositoriesList/repositoriesListOutput/RepositoriesListOutputModel'
 
 interface UseCases {
 	getRepositoriesListCase: GetRepositoriesListCase
 }
 
 export class RepositoriesListViewModel {
-	private useCases: UseCases | null = null
+	private readonly useCases: ValueOrNull<UseCases> = null
 
 	public isLoading = false
- 	public list: IRepositoriesListOutputModel[] = []
-	public error: any = null
+ 	public list: RepositoriesListOutputModel[] = []
 
 	constructor (useCases: UseCases) {
 		this.useCases = useCases
 
 		makeObservable(this, {
 			isLoading: observable,
-			list: observable,
-			error: observable
+			list: observable
 		})
 	}
 
@@ -31,7 +31,7 @@ export class RepositoriesListViewModel {
 			const response = await this.useCases?.getRepositoriesListCase.getRepositoriesList()
 
 			if (response) {
-				this.list = response as unknown as IRepositoriesListOutputModel[]
+				this.list = response
 			}
 		} finally {
 			this.isLoading = false
