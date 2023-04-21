@@ -1,5 +1,6 @@
 import {FC} from 'react'
-import Skeleton from 'react-loading-skeleton'
+
+import BaseSkeleton from '@components/ui/skeleton/BaseSkeleton'
 
 import styles from './Skeletons.module.scss'
 
@@ -9,7 +10,7 @@ const Skeletons: FC = () => {
 	return (
 		<div className={styles['skeletons-wrapper']}>
 			{stub.map(key => (
-				<Skeleton className={styles.skeleton} key={key} height='200px'/>
+				<BaseSkeleton key={key} height='200px'/>
 			))}
 		</div>
 	)

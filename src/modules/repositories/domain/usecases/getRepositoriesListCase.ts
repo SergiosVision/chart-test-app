@@ -1,10 +1,12 @@
+import {ValueOrNull} from '@common/types/interfaces/common'
+
 import {RepositoryImpl} from '../../data/repository'
 import {GetRepositoriesListBaseError} from '../../helpers/exceptions'
-import {IRepositoriesListResponseModel} from '../models/repositoriesList/repositoriesListResponse/interfaces'
-import {RepositoriesListOutputModel} from '../models/repositoriesList/repositoriesListOutput/RepositoriesListOutput'
+import {RepositoriesListOutputModel} from '../models/repositoriesList/repositoriesListOutput/RepositoriesListOutputModel'
+import {RepositoriesListResponseModel} from '../models/repositoriesList/repositoriesListResponse/RepositoriesListResponseModel'
 
 export class GetRepositoriesListCase {
-	private repository: RepositoryImpl | null = null
+	private repository: ValueOrNull<RepositoryImpl> = null
 
 	constructor(repo: RepositoryImpl) {
 		this.repository = repo
@@ -20,7 +22,7 @@ export class GetRepositoriesListCase {
 		}
 	}
 
-	private convertRepositoriesListData (data: IRepositoriesListResponseModel[]) {
+	private convertRepositoriesListData (data: Partial<RepositoriesListResponseModel>[]) {
 		return data.map(item => new RepositoriesListOutputModel({
 			id: item?.id,
 			name: item?.name,

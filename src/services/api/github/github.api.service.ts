@@ -1,4 +1,4 @@
-import { request } from '@octokit/request'
+import {request} from '@octokit/request'
 
 interface Request {
 	method: 'GET' | 'POST'
@@ -7,7 +7,7 @@ interface Request {
 }
 
 export class GithubApiService {
-	async http (req: Request) {
+	async http<T> (req: Request) {
 		const options = {
 			url: req.url,
 			method: req.method.toUpperCase(),
@@ -22,7 +22,7 @@ export class GithubApiService {
 			throw error
 		}
 
-		return response
+		return response?.data as T
 	}
 }
 
