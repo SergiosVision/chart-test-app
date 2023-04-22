@@ -1,11 +1,11 @@
-import React from 'react'
+import { FC } from 'react'
 
 import BaseContainer from '@components/layouts/containers/BaseContainer/BaseContainer'
 
-import {RepositoryDetails} from '@modules/repositories/presentation/repositoryDetails'
-import {WeeklyCommitCountChart} from '@modules/repositories/presentation/weeklyCommitCountChart'
+import { RepositoryDetails } from '@modules/repositories/presentation/repositoryDetails'
+import { WeeklyCommitCountChart } from '@modules/repositories/presentation/weeklyCommitCountChart'
 
-const RepositoryDetailsPage = () => {
+const RepositoryDetailsPage: FC = () => {
 	return (
 		<BaseContainer className='flex flex-col gap-4'>
 			<RepositoryDetails />

@@ -1,4 +1,4 @@
-import {FC} from 'react'
+import { FC } from 'react'
 
 import BaseSkeleton from '@components/ui/skeleton/BaseSkeleton'
 
@@ -10,7 +10,7 @@ const Skeletons: FC = () => {
 	return (
 		<div className={styles['skeletons-wrapper']}>
 			{stub.map(key => (
-				<BaseSkeleton key={key} height='200px'/>
+				<BaseSkeleton key={key} height='200px' />
 			))}
 		</div>
 	)

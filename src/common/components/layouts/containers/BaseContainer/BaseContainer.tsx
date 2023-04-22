@@ -9,7 +9,7 @@ interface Props {
 	className?: string
 }
 
-const BaseContainer: FC<Props> = ({children, className}) => {
+const BaseContainer: FC<Props> = ({ children, className }) => {
 	return (
 		<div className={classNames(styles['base-container'], className)}>
 			{children}

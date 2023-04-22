@@ -1,5 +1,3 @@
 import RepositoriesList from './Provider'
 
-export {
-	RepositoriesList
-}
+export { RepositoriesList }

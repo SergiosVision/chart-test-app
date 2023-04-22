@@ -1,9 +1,9 @@
-import {ValueOrNull} from '@common/types/interfaces/common'
+import { ValueOrNull } from '@common/types/interfaces/common'
 
-import {RepositoryImpl} from '../../data/repository'
-import {GetRepositoriesListBaseError} from '../../helpers/exceptions'
-import {RepositoriesListOutputModel} from '../models/repositoriesList/repositoriesListOutput/RepositoriesListOutputModel'
-import {RepositoriesListResponseModel} from '../models/repositoriesList/repositoriesListResponse/RepositoriesListResponseModel'
+import { RepositoryImpl } from '../../data/repository'
+import { GetRepositoriesListBaseError } from '../../helpers/exceptions'
+import { RepositoriesListOutputModel } from '../models/repositoriesList/repositoriesListOutput/RepositoriesListOutputModel'
+import { RepositoriesListResponseModel } from '../models/repositoriesList/repositoriesListResponse/RepositoriesListResponseModel'
 
 export class GetRepositoriesListCase {
 	private repository: ValueOrNull<RepositoryImpl> = null
@@ -12,7 +12,7 @@ export class GetRepositoriesListCase {
 		this.repository = repo
 	}
 
-	async getRepositoriesList () {
+	async getRepositoriesList() {
 		try {
 			const response = await this.repository?.getRepositoriesList()
 
@@ -22,14 +22,19 @@ export class GetRepositoriesListCase {
 		}
 	}
 
-	private convertRepositoriesListData (data: Partial<RepositoriesListResponseModel>[]) {
-		return data.map(item => new RepositoriesListOutputModel({
-			id: item?.id,
-			name: item?.name,
-			private: item?.private,
-			description: item?.description,
-			owner: item?.owner,
-			watchers: item?.watchers
-		}))
+	private convertRepositoriesListData(
+		data: Partial<RepositoriesListResponseModel>[]
+	) {
+		return data.map(
+			item =>
+				new RepositoriesListOutputModel({
+					id: item?.id,
+					name: item?.name,
+					private: item?.private,
+					description: item?.description,
+					owner: item?.owner,
+					watchers: item?.watchers
+				})
+		)
 	}
 }

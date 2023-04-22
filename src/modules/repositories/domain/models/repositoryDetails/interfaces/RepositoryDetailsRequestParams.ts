@@ -1,3 +1,3 @@
-import {IBaseRequestParamsForDetails} from '../../interfaces/baseRequestParamsForDetails'
+import { IBaseRequestParamsForDetails } from '../../interfaces/baseRequestParamsForDetails'
 
-export interface IRepositoryDetailsRequestParams extends IBaseRequestParamsForDetails {}
+export type IRepositoryDetailsRequestParams = IBaseRequestParamsForDetails

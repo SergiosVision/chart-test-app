@@ -1,10 +1,13 @@
-import {array, object, number} from 'yup'
+import { array, number, object } from 'yup'
 
-import {Model} from '@utils/model'
+import { Model } from '@utils/model'
 
-import {IWeeklyCommitCountOutput} from './WeeklyCommitCountOutput'
+import { IWeeklyCommitCountOutput } from './WeeklyCommitCountOutput'
 
-export class WeeklyCommitCountOutputModel extends Model implements IWeeklyCommitCountOutput {
+export class WeeklyCommitCountOutputModel
+	extends Model
+	implements IWeeklyCommitCountOutput
+{
 	all: IWeeklyCommitCountOutput['all'] = []
 	owner: IWeeklyCommitCountOutput['owner'] = []
 
@@ -17,7 +20,7 @@ export class WeeklyCommitCountOutputModel extends Model implements IWeeklyCommit
 		}
 	}
 
-	getSchema () {
+	getSchema() {
 		return object().shape({
 			all: array().of(number()),
 			owner: array().of(number())

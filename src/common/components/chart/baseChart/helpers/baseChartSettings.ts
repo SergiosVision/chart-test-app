@@ -1,4 +1,4 @@
-import {Options} from 'highcharts'
+import { Options } from 'highcharts'
 
 const baseChartOptions: Partial<Options> = {
 	boost: {
@@ -6,7 +6,7 @@ const baseChartOptions: Partial<Options> = {
 		useGPUTranslations: true
 	},
 	chart: {
-		backgroundColor: '#424244',
+		backgroundColor: '#424244'
 	},
 	colors: ['#FF7652', '#6C4ECF', '#32A8E2', '#50B432', '#ffffff'],
 	title: {

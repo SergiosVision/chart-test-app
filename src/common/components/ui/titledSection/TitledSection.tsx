@@ -1,4 +1,6 @@
-import {FC, ReactNode} from 'react'
+import { FC, ReactNode } from 'react'
+
+import Text2xl from '@components/ui/typography/text2xl/Text2xl'
 
 import classNames from '@utils/helpers/classNames'
 
@@ -11,10 +13,21 @@ interface Props {
 	children?: ReactNode
 }
 
-const TitledSection: FC<Props> = ({title, classNameTitle, className, children}) => {
+const TitledSection: FC<Props> = ({
+	title,
+	classNameTitle,
+	className,
+	children
+}) => {
 	return (
 		<section className={classNames(styles.wrapper, className)}>
-			{typeof title === 'string' ? <h2 className={classNames(classNameTitle, 'mb-4 text-2xl')}>{title}</h2> : title}
+			{typeof title === 'string' ? (
+				<Text2xl className={classNames(classNameTitle, 'mb-4')}>
+					{title}
+				</Text2xl>
+			) : (
+				title
+			)}
 			{children}
 		</section>
 	)

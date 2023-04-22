@@ -1,21 +1,22 @@
 {
-  "singleQuote": true,
-  "trailingComma": "none",
-  "useTabs": true,
-  "semi": false,
-  "arrowParens": "avoid",
-  "jsxSingleQuote": true,
-  "importOrder": [
-    "<THIRD_PARTY_MODULES>",
-    "^@app/(.*)$",
-    "^@components/(.*)$",
-    "^@modules/(.*)$",
-    "^@pages/(.*)$",
-    "^@utils/(.*)$",
-    "^../(.*)",
-    "^./(.*)",
-    "(.scss)$"
-  ],
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+	"singleQuote": true,
+	"trailingComma": "none",
+	"useTabs": true,
+	"semi": false,
+	"arrowParens": "avoid",
+	"jsxSingleQuote": true,
+	"importOrder": [
+		"<THIRD_PARTY_MODULES>",
+		"^@app/(.*)$",
+		"^@common/(.*)$",
+		"^@components/(.*)$",
+		"^@modules/(.*)$",
+		"^@pages/(.*)$",
+		"^@utils/(.*)$",
+		"^../(.*)",
+		"^./(.*)",
+		"(.scss)$"
+	],
+	"importOrderSeparation": true,
+	"importOrderSortSpecifiers": true
 }

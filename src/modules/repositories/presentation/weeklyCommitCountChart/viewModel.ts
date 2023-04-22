@@ -1,10 +1,10 @@
-import {makeObservable, observable} from 'mobx'
+import { makeObservable, observable } from 'mobx'
 
-import {ValueOrNull} from '@common/types/interfaces/common'
+import { ValueOrNull } from '@common/types/interfaces/common'
 
-import {GetWeeklyCommitCountCase} from '../../domain/usecases/getWeeklyCommitCountCase'
 import IWeeklyCommitCountRequestParams from '../../domain/models/weeklyCommitCount/interfaces/WeeklyCommitCountRequestParams'
-import {WeeklyCommitCountOutputModel} from '../../domain/models/weeklyCommitCount/weeklyCommitCountOutput/WeeklyCommitCountOutputModel'
+import { WeeklyCommitCountOutputModel } from '../../domain/models/weeklyCommitCount/weeklyCommitCountOutput/WeeklyCommitCountOutputModel'
+import { GetWeeklyCommitCountCase } from '../../domain/usecases/getWeeklyCommitCountCase'
 
 interface UseCases {
 	getWeeklyCommitCountCase: GetWeeklyCommitCountCase
@@ -13,8 +13,10 @@ interface UseCases {
 export class WeeklyCommitCountChartViewModel {
 	private readonly useCases: ValueOrNull<UseCases> = null
 
-	public isLoading: boolean = false
-	public data: WeeklyCommitCountOutputModel = new WeeklyCommitCountOutputModel({})
+	public isLoading = false
+	public data: WeeklyCommitCountOutputModel = new WeeklyCommitCountOutputModel(
+		{}
+	)
 
 	constructor(useCases: UseCases) {
 		this.useCases = useCases
@@ -25,11 +27,16 @@ export class WeeklyCommitCountChartViewModel {
 		})
 	}
 
-	async getWeeklyCommitCount (params: IWeeklyCommitCountRequestParams): Promise<void> {
+	async getWeeklyCommitCount(
+		params: IWeeklyCommitCountRequestParams
+	): Promise<void> {
 		this.isLoading = true
 
 		try {
-			const response = await this.useCases?.getWeeklyCommitCountCase.getWeeklyCommitCount(params)
+			const response =
+				await this.useCases?.getWeeklyCommitCountCase.getWeeklyCommitCount(
+					params
+				)
 
 			if (response) {
 				this.data = response

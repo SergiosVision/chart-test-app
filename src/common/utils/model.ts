@@ -1,4 +1,4 @@
-import {ObjectSchema, object} from 'yup'
+import { ObjectSchema, object } from 'yup'
 
 import { ValidationError } from '@utils/exception'
 
@@ -7,18 +7,18 @@ export class Model {
 		this.validate()
 	}
 
-	get defaults () {
+	get defaults() {
 		return {}
 	}
 
-	private validate () {
+	private validate() {
 		const schema = this.getSchema()
 
 		if (!schema) {
 			throw new ValidationError('Schema is not defined')
 		}
 
-		schema.validateSync(this, {abortEarly: true})
+		schema.validateSync(this, { abortEarly: true })
 	}
 
 	getSchema(): ObjectSchema<{}> {

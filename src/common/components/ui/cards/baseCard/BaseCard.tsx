@@ -1,4 +1,4 @@
-import {FC, ReactNode} from 'react'
+import { FC, ReactNode } from 'react'
 
 import classNames from '@utils/helpers/classNames'
 
@@ -8,11 +8,9 @@ interface Props {
 	children: ReactNode
 	className?: string
 }
-const BaseCard: FC<Props> = ({children, className}) => {
+const BaseCard: FC<Props> = ({ children, className }) => {
 	return (
-		<div className={classNames(styles['base-card'], className)}>
-			{children}
-		</div>
+		<div className={classNames(styles['base-card'], className)}>{children}</div>
 	)
 }
 

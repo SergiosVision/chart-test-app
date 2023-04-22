@@ -1,11 +1,11 @@
 .wrapper {
-  @apply flex flex-col gap-1;
+	@apply flex flex-col gap-1;
 }
 
 .title {
-  @apply line-clamp-1 text-xs text-primary break-words;
+	@apply line-clamp-1 text-xs text-primary break-words #{!important};
 }
 
 .subtitle {
-  @apply text-sm text-base break-words;
+	@apply text-sm text-base break-words #{!important};
 }
