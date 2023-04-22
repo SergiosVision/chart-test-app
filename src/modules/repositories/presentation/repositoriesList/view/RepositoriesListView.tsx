@@ -1,8 +1,9 @@
-import {FC} from 'react'
+import { FC } from 'react'
 
-import List from './repositoriesList/list/List'
+import { RepositoriesListOutputModel } from '../../../domain/models/repositoriesList/repositoriesListOutput/RepositoriesListOutputModel'
+
 import styles from './repositoriesList/RepositoriesListView.module.scss'
-import {RepositoriesListOutputModel} from '../../../domain/models/repositoriesList/repositoriesListOutput/RepositoriesListOutputModel'
+import List from './repositoriesList/list/List'
 
 interface Props {
 	isLoading: boolean
@@ -12,12 +13,7 @@ interface Props {
 const RepositoriesListView: FC<Props> = ({ isLoading, list }) => {
 	return (
 		<section className={styles.wrapper}>
-			<h1 className={styles.title}>List of facebook organization repositories</h1>
-
-			<List
-				list={list}
-				isLoading={isLoading}
-			/>
+			<List list={list} isLoading={isLoading} />
 		</section>
 	)
 }

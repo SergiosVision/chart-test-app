@@ -1,4 +1,7 @@
-import {FC, ReactNode} from 'react'
+import { FC, ReactNode } from 'react'
+
+import BaseText from '@components/ui/typography/baseText/BaseText'
+import TextBody from '@components/ui/typography/textBody/TextBody'
 
 import classNames from '@utils/helpers/classNames'
 
@@ -12,11 +15,26 @@ interface Props {
 	classNameSubtitle?: string
 }
 
-const TitledText: FC<Props> = ({title, subTitle, classNameSubtitle, className, classNameTitle }) => {
+const TitledText: FC<Props> = ({
+	title,
+	subTitle,
+	classNameSubtitle,
+	className,
+	classNameTitle
+}) => {
 	return (
 		<div className={classNames(styles.wrapper, className)}>
-			{title && <span className={classNames(styles.title, classNameTitle)}>{title}</span>}
-			<p className={classNames(styles.subtitle, classNameSubtitle)}>{subTitle || '-'}</p>
+			{title && (
+				<TextBody
+					as='span'
+					className={classNames(styles.title, classNameTitle)}
+				>
+					{title}
+				</TextBody>
+			)}
+			<BaseText className={classNames(styles.subtitle, classNameSubtitle)}>
+				{subTitle || '-'}
+			</BaseText>
 		</div>
 	)
 }

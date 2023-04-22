@@ -1,10 +1,13 @@
-import {array, object} from 'yup'
+import { array, object } from 'yup'
 
-import {Model} from '@utils/model'
+import { Model } from '@utils/model'
 
-import {IWeeklyCommitCountResponse} from './WeeklyCommitCountResponse'
+import { IWeeklyCommitCountResponse } from './WeeklyCommitCountResponse'
 
-export class WeeklyCommitCountResponseModel extends Model implements IWeeklyCommitCountResponse {
+export class WeeklyCommitCountResponseModel
+	extends Model
+	implements IWeeklyCommitCountResponse
+{
 	all: IWeeklyCommitCountResponse['all'] = []
 	owner: IWeeklyCommitCountResponse['owner'] = []
 
@@ -17,7 +20,7 @@ export class WeeklyCommitCountResponseModel extends Model implements IWeeklyComm
 		}
 	}
 
-	getSchema () {
+	getSchema() {
 		return object().shape({
 			all: array(),
 			owner: array()

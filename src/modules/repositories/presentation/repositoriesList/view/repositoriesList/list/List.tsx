@@ -1,11 +1,12 @@
-import {FC} from 'react'
+import { FC } from 'react'
 
 import BaseErrorText from '@components/ui/typography/BaseErrorText'
 
+import { RepositoriesListOutputModel } from '../../../../../domain/models/repositoriesList/repositoriesListOutput/RepositoriesListOutputModel'
 import Card from '../card/Card'
-import styles from './List.module.scss'
 import Skeletons from '../skeletons/Skeletons'
-import {RepositoriesListOutputModel} from '../../../../../domain/models/repositoriesList/repositoriesListOutput/RepositoriesListOutputModel'
+
+import styles from './List.module.scss'
 
 interface Props {
 	isLoading: boolean
@@ -13,7 +14,6 @@ interface Props {
 }
 
 const List: FC<Props> = ({ list, isLoading }) => {
-
 	if (isLoading) {
 		return <Skeletons />
 	}

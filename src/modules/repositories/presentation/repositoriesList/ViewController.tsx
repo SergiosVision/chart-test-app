@@ -1,33 +1,33 @@
-import {FC, useEffect} from 'react'
-import {observer} from 'mobx-react-lite'
-import {useErrorBoundary} from 'react-error-boundary'
+import { observer } from 'mobx-react-lite'
+import { FC, useEffect } from 'react'
+import { useErrorBoundary } from 'react-error-boundary'
 
-import {RepositoriesListViewModel} from './viewModel'
 import RepositoriesListView from './view/RepositoriesListView'
+import { RepositoriesListViewModel } from './viewModel'
 
 interface Props {
-    viewModel: RepositoriesListViewModel
+	viewModel: RepositoriesListViewModel
 }
 
 const ViewController: FC<Props> = ({ viewModel }) => {
-    const {showBoundary} = useErrorBoundary()
+	const { showBoundary } = useErrorBoundary()
 
-    useEffect(() => {
-        (async () => {
-            try {
-                await viewModel.getRepositoriesList()
-            } catch (error) {
-                showBoundary(error)
-            }
-        })()
-    }, [])
+	useEffect(() => {
+		;(async () => {
+			try {
+				await viewModel.getRepositoriesList()
+			} catch (error) {
+				showBoundary(error)
+			}
+		})()
+	}, [])
 
-    return (
-      <RepositoriesListView
-        list={viewModel.list}
-        isLoading={viewModel.isLoading}
-      />
-    )
+	return (
+		<RepositoriesListView
+			list={viewModel.list}
+			isLoading={viewModel.isLoading}
+		/>
+	)
 }
 
 export default observer(ViewController)

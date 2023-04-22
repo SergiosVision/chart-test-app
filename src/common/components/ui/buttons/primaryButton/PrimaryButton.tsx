@@ -1,15 +1,19 @@
-import {FC} from 'react'
+import { FC } from 'react'
 
 import classNames from '@utils/helpers/classNames'
 
+import BaseButton, { BaseButtonProps } from '../baseButton/BaseButton'
+
 import styles from './PrimaryButton.module.scss'
-import BaseButton, {BaseButtonProps} from '../baseButton/BaseButton'
 
-interface Props extends BaseButtonProps {}
+type Props = BaseButtonProps
 
-const PrimaryButton: FC<Props> = ({className, children, ...rest}) => {
+const PrimaryButton: FC<Props> = ({ className, children, ...rest }) => {
 	return (
-		<BaseButton className={classNames(styles['primary-button'], className)} {...rest}>
+		<BaseButton
+			className={classNames(styles['primary-button'], className)}
+			{...rest}
+		>
 			{children}
 		</BaseButton>
 	)

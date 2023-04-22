@@ -1,6 +1,6 @@
-import {StringOrNull, ValueOrNull} from '@common/types/interfaces/common'
+import { StringOrNull, ValueOrNull } from '@common/types/interfaces/common'
 
-import {IOwner} from '../../interfaces/owner'
+import { IOwner } from '../../interfaces/owner'
 
 export interface IRepositoriesListOutputModel {
 	id: StringOrNull

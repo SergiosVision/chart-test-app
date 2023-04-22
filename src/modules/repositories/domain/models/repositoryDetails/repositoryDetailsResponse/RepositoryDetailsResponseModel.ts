@@ -1,10 +1,13 @@
-import {object, string, number, boolean} from 'yup'
+import { boolean, number, object, string } from 'yup'
 
-import {Model} from '@utils/model'
+import { Model } from '@utils/model'
 
-import {IRepositoryDetailsResponse} from './RepositoryDetailsResponse'
+import { IRepositoryDetailsResponse } from './RepositoryDetailsResponse'
 
-export class RepositoryDetailsResponseModel extends Model implements IRepositoryDetailsResponse {
+export class RepositoryDetailsResponseModel
+	extends Model
+	implements IRepositoryDetailsResponse
+{
 	id: IRepositoryDetailsResponse['id'] = null
 	name: IRepositoryDetailsResponse['name'] = null
 	private: IRepositoryDetailsResponse['private'] = false

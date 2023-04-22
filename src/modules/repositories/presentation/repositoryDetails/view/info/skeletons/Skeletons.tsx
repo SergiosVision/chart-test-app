@@ -1,4 +1,4 @@
-import {FC} from 'react'
+import { FC } from 'react'
 
 import BaseSkeleton from '@components/ui/skeleton/BaseSkeleton'
 

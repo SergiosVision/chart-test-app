@@ -1,10 +1,10 @@
-import {makeObservable, observable} from 'mobx'
+import { makeObservable, observable } from 'mobx'
 
-import {ValueOrNull} from '@common/types/interfaces/common'
+import { ValueOrNull } from '@common/types/interfaces/common'
 
-import {GetRepositoryDetailsCase} from '../../domain/usecases/getRepositoryDetailsCase'
-import {IRepositoryDetailsRequestParams} from '../../domain/models/repositoryDetails/interfaces/RepositoryDetailsRequestParams'
-import {RepositoryDetailsOutputModel} from '../../domain/models/repositoryDetails/repositoryDetailsOutput/RepositoryDetailsOutputModel'
+import { IRepositoryDetailsRequestParams } from '../../domain/models/repositoryDetails/interfaces/RepositoryDetailsRequestParams'
+import { RepositoryDetailsOutputModel } from '../../domain/models/repositoryDetails/repositoryDetailsOutput/RepositoryDetailsOutputModel'
+import { GetRepositoryDetailsCase } from '../../domain/usecases/getRepositoryDetailsCase'
 
 interface UseCases {
 	getRepositoryDetailsCase: GetRepositoryDetailsCase
@@ -13,7 +13,7 @@ interface UseCases {
 export class RepositoryDetailsViewModel {
 	private readonly useCases: ValueOrNull<UseCases> = null
 
-	public isLoading: boolean = false
+	public isLoading = false
 	public data: ValueOrNull<RepositoryDetailsOutputModel> = null
 
 	constructor(useCases: UseCases) {
@@ -25,11 +25,16 @@ export class RepositoryDetailsViewModel {
 		})
 	}
 
-	async getRepositoryDetails (params: IRepositoryDetailsRequestParams): Promise<void> {
+	async getRepositoryDetails(
+		params: IRepositoryDetailsRequestParams
+	): Promise<void> {
 		this.isLoading = true
 
 		try {
-			const response = await this.useCases?.getRepositoryDetailsCase.getRepositoryDetails(params)
+			const response =
+				await this.useCases?.getRepositoryDetailsCase.getRepositoryDetails(
+					params
+				)
 
 			if (response) {
 				this.data = response

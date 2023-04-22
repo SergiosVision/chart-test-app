@@ -1,5 +1,5 @@
-import {FC, useMemo} from 'react'
-import {Options, SeriesOptionsType} from 'highcharts'
+import { Options, SeriesOptionsType } from 'highcharts'
+import { FC, useMemo } from 'react'
 
 import BaseChart from '@components/chart/baseChart/BaseChart'
 
@@ -8,7 +8,7 @@ const baseOptions: Options = {
 		text: 'Weekly Commit Counts'
 	},
 	chart: {
-		height: '300px',
+		height: '300px'
 	}
 }
 
@@ -16,15 +16,16 @@ interface Props {
 	chartData?: SeriesOptionsType[]
 }
 
-const Chart: FC<Props> = ({chartData}) => {
-	const options = useMemo(() => ({
-		...baseOptions,
-		series: chartData
-	}), [chartData])
-
-	return (
-		<BaseChart options={options} />
+const Chart: FC<Props> = ({ chartData }) => {
+	const options = useMemo(
+		() => ({
+			...baseOptions,
+			series: chartData
+		}),
+		[chartData]
 	)
+
+	return <BaseChart options={options} />
 }
 
 export default Chart

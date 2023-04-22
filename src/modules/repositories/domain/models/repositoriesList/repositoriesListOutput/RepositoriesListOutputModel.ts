@@ -1,10 +1,13 @@
-import {boolean, number, object, string} from 'yup'
+import { boolean, number, object, string } from 'yup'
 
-import {Model} from '@utils/model'
+import { Model } from '@utils/model'
 
-import {IRepositoriesListOutputModel} from './RepositoriesListOutput'
+import { IRepositoriesListOutputModel } from './RepositoriesListOutput'
 
-export class RepositoriesListOutputModel extends Model implements IRepositoriesListOutputModel {
+export class RepositoriesListOutputModel
+	extends Model
+	implements IRepositoriesListOutputModel
+{
 	id: IRepositoriesListOutputModel['id'] = null
 	watchers: IRepositoriesListOutputModel['watchers'] = 0
 	name: IRepositoriesListOutputModel['name'] = null
@@ -40,7 +43,7 @@ export class RepositoriesListOutputModel extends Model implements IRepositoriesL
 		}
 	}
 
-	getSchema () {
+	getSchema() {
 		return object().shape({
 			watchers: number(),
 			private: boolean(),

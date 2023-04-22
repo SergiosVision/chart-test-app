@@ -1,7 +1,8 @@
-import {StringOrNull, ValueOrNull} from '@common/types/interfaces/common'
+import { StringOrNull, ValueOrNull } from '@common/types/interfaces/common'
 
-import {IOwner} from '../../interfaces/owner'
-import {ILicense} from '../../interfaces/license'
+import { ILicense } from '../../interfaces/license'
+import { IOwner } from '../../interfaces/owner'
+
 export interface IRepositoryDetailsResponse {
 	id: StringOrNull
 	name: StringOrNull

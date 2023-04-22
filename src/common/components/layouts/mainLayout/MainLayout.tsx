@@ -1,9 +1,8 @@
 import React from 'react'
-import {Outlet} from 'react-router-dom';
+import { Outlet } from 'react-router-dom'
 
+import styles from './MainLayout.module.scss'
 import Header from './header/Header'
-
-import styles from './MainLayout.module.scss';
 
 const MainLayout: React.FC = () => {
 	return (
