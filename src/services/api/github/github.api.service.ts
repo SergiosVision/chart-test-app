@@ -1,12 +1,14 @@
 import { request } from '@octokit/request'
 
+import IAPI from '../interfaces/api'
+
 interface Request {
 	method: 'GET' | 'POST'
 	url: string
 	headers?: { [key: string]: any }
 }
 
-export class GithubApiService {
+export class GithubApiService implements IAPI {
 	async http<T>(req: Request) {
 		const options = {
 			url: req.url,
