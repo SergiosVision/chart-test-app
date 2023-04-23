@@ -1,4 +1,4 @@
-import { GithubApiService } from '@services/api/github/github.api.service'
+import IAPI from '@services/api/interfaces/api'
 
 import { ValueOrNull } from '@common/types/interfaces/common'
 
@@ -12,9 +12,9 @@ import { IWeeklyCommitCountResponse } from '../domain/models/weeklyCommitCount/w
 import { WeeklyCommitCountResponseModel } from '../domain/models/weeklyCommitCount/weeklyCommitCountResponse/WeeklyCommitCountResponseModel'
 
 export class RepositoryImpl {
-	private API: ValueOrNull<GithubApiService> = null
+	private API: ValueOrNull<IAPI> = null
 
-	constructor(api: GithubApiService) {
+	constructor(api: IAPI) {
 		this.API = api
 	}
 
