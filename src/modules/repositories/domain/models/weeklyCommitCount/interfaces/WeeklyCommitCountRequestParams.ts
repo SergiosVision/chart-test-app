@@ -1,5 +1,5 @@
-import { IBaseRequestParamsForDetails } from '../../interfaces/baseRequestParamsForDetails'
+import { IBaseRequestParamsForDetails } from '../../interfaces/baseRequestParamsForDetails';
 
-type IWeeklyCommitCountRequestParams = IBaseRequestParamsForDetails
+type IWeeklyCommitCountRequestParams = IBaseRequestParamsForDetails;
 
-export default IWeeklyCommitCountRequestParams
+export default IWeeklyCommitCountRequestParams;

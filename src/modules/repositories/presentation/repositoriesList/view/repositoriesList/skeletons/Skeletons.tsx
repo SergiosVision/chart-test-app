@@ -1,10 +1,10 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import BaseSkeleton from '@components/ui/skeleton/BaseSkeleton'
+import BaseSkeleton from '@components/ui/skeleton/BaseSkeleton';
 
-import styles from './Skeletons.module.scss'
+import styles from './Skeletons.module.scss';
 
-const stub = Array.from(Array(12).keys())
+const stub = Array.from(Array(12).keys());
 
 const Skeletons: FC = () => {
 	return (
@@ -13,7 +13,7 @@ const Skeletons: FC = () => {
 				<BaseSkeleton key={key} height='200px' />
 			))}
 		</div>
-	)
-}
+	);
+};
 
-export default Skeletons
+export default Skeletons;

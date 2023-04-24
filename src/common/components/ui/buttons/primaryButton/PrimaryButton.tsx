@@ -1,12 +1,12 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import classNames from '@utils/helpers/classNames'
+import classNames from '@utils/helpers/classNames';
 
-import BaseButton, { BaseButtonProps } from '../baseButton/BaseButton'
+import BaseButton, { BaseButtonProps } from '../baseButton/BaseButton';
 
-import styles from './PrimaryButton.module.scss'
+import styles from './PrimaryButton.module.scss';
 
-type Props = BaseButtonProps
+type Props = BaseButtonProps;
 
 const PrimaryButton: FC<Props> = ({ className, children, ...rest }) => {
 	return (
@@ -16,7 +16,7 @@ const PrimaryButton: FC<Props> = ({ className, children, ...rest }) => {
 		>
 			{children}
 		</BaseButton>
-	)
-}
+	);
+};
 
-export default PrimaryButton
+export default PrimaryButton;

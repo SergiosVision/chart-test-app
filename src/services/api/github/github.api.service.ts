@@ -1,11 +1,11 @@
-import { request } from '@octokit/request'
+import { request } from '@octokit/request';
 
-import IAPI from '../interfaces/api'
+import IAPI from '../interfaces/api';
 
 interface Request {
-	method: 'GET' | 'POST'
-	url: string
-	headers?: { [key: string]: any }
+	method: 'GET' | 'POST';
+	url: string;
+	headers?: { [key: string]: any };
 }
 
 export class GithubApiService implements IAPI {
@@ -14,14 +14,14 @@ export class GithubApiService implements IAPI {
 			url: req.url,
 			method: req.method.toUpperCase(),
 			headers: { Accept: 'application/json', ...(req?.headers || {}) }
-		}
+		};
 
-		const response = await request(options)
+		const response = await request(options);
 
-		return response?.data as T
+		return response?.data as T;
 	}
 }
 
-const githubApiService = new GithubApiService()
+const githubApiService = new GithubApiService();
 
-export default githubApiService
+export default githubApiService;

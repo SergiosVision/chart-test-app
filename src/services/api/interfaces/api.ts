@@ -1,5 +1,5 @@
 interface IAPI {
-	http<TResponse = any>(params?: any): Promise<TResponse>
+	http<TResponse = any>(params?: any): Promise<TResponse>;
 }
 
-export default IAPI
+export default IAPI;

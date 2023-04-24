@@ -1,16 +1,16 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import { ValueOrNull } from '@common/types/interfaces/common'
+import { ValueOrNull } from '@common/types/interfaces/common';
 
-import BaseErrorText from '@components/ui/typography/BaseErrorText'
+import BaseErrorText from '@components/ui/typography/baseErrorText/BaseErrorText';
 
-import { RepositoryDetailsOutputModel } from '../../../domain/models/repositoryDetails/repositoryDetailsOutput/RepositoryDetailsOutputModel'
+import { RepositoryDetailsOutputModel } from '../../../domain/models/repositoryDetails/repositoryDetailsOutput/RepositoryDetailsOutputModel';
 
-import CommonInfo from './info/commonInfo/CommonInfo'
+import CommonInfo from './info/commonInfo/CommonInfo';
 
 interface Props {
-	isLoading: boolean
-	data: ValueOrNull<RepositoryDetailsOutputModel>
+	isLoading: boolean;
+	data: ValueOrNull<RepositoryDetailsOutputModel>;
 }
 
 const RepositoryDetailsView: FC<Props> = ({ isLoading, data }) => {
@@ -22,7 +22,7 @@ const RepositoryDetailsView: FC<Props> = ({ isLoading, data }) => {
 				<CommonInfo data={data} isLoading={isLoading} />
 			)}
 		</section>
-	)
-}
+	);
+};
 
-export default RepositoryDetailsView
+export default RepositoryDetailsView;

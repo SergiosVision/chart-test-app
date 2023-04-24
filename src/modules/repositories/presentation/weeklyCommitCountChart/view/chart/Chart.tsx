@@ -1,7 +1,7 @@
-import { Options, SeriesOptionsType } from 'highcharts'
-import { FC, useMemo } from 'react'
+import { Options, SeriesOptionsType } from 'highcharts';
+import { FC, useMemo } from 'react';
 
-import BaseChart from '@components/chart/baseChart/BaseChart'
+import BaseChart from '@components/chart/baseChart/BaseChart';
 
 const baseOptions: Options = {
 	title: {
@@ -10,10 +10,10 @@ const baseOptions: Options = {
 	chart: {
 		height: '300px'
 	}
-}
+};
 
 interface Props {
-	chartData?: SeriesOptionsType[]
+	chartData?: SeriesOptionsType[];
 }
 
 const Chart: FC<Props> = ({ chartData }) => {
@@ -23,9 +23,9 @@ const Chart: FC<Props> = ({ chartData }) => {
 			series: chartData
 		}),
 		[chartData]
-	)
+	);
 
-	return <BaseChart options={options} />
-}
+	return <BaseChart options={options} />;
+};
 
-export default Chart
+export default Chart;

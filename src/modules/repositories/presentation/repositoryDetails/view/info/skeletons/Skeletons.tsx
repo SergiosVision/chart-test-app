@@ -1,8 +1,8 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import BaseSkeleton from '@components/ui/skeleton/BaseSkeleton'
+import BaseSkeleton from '@components/ui/skeleton/BaseSkeleton';
 
-const stub = Array.from(Array(8).keys())
+const stub = Array.from(Array(8).keys());
 
 const Skeletons: FC = () => {
 	return (
@@ -14,7 +14,7 @@ const Skeletons: FC = () => {
 				</div>
 			))}
 		</>
-	)
-}
+	);
+};
 
-export default Skeletons
+export default Skeletons;

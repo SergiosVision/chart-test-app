@@ -1,4 +1,4 @@
-import { Options } from 'highcharts'
+import { Options } from 'highcharts';
 
 const baseChartOptions: Partial<Options> = {
 	boost: {
@@ -51,6 +51,6 @@ const baseChartOptions: Partial<Options> = {
 			}
 		}
 	}
-}
+};
 
-export default baseChartOptions
+export default baseChartOptions;

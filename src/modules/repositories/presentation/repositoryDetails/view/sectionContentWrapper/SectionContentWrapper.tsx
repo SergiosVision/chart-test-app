@@ -1,13 +1,13 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode } from 'react';
 
-import styles from './SectionContentWrapper.module.scss'
+import styles from './SectionContentWrapper.module.scss';
 
 interface Props {
-	children?: ReactNode
+	children?: ReactNode;
 }
 
 const SectionContentWrapper: FC<Props> = ({ children }) => {
-	return <div className={styles.wrapper}>{children}</div>
-}
+	return <div className={styles.wrapper}>{children}</div>;
+};
 
-export default SectionContentWrapper
+export default SectionContentWrapper;

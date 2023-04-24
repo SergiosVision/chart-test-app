@@ -1,19 +1,19 @@
-import { FC } from 'react'
-import { Link } from 'react-router-dom'
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
-import routes from '@common/router/routes'
-import { StringOrNull } from '@common/types/interfaces/common'
+import routes from '@common/router/routes';
+import { StringOrNull } from '@common/types/interfaces/common';
 
-import BaseCard from '@components/ui/cards/baseCard/BaseCard'
+import BaseCard from '@components/ui/cards/baseCard/BaseCard';
 
-import styles from './Card.module.scss'
+import styles from './Card.module.scss';
 
 interface Props {
-	id: StringOrNull
-	name: StringOrNull
-	imageUrl?: string
-	ownerName?: StringOrNull
-	description?: StringOrNull
+	id: StringOrNull;
+	name: StringOrNull;
+	imageUrl?: string;
+	ownerName?: StringOrNull;
+	description?: StringOrNull;
 }
 
 const Card: FC<Props> = ({ name, imageUrl, description, ownerName }) => {
@@ -34,7 +34,7 @@ const Card: FC<Props> = ({ name, imageUrl, description, ownerName }) => {
 				</div>
 			</BaseCard>
 		</Link>
-	)
-}
+	);
+};
 
-export default Card
+export default Card;

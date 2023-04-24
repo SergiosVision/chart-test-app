@@ -1,10 +1,10 @@
-import * as Highcharts from 'highcharts'
-import HighchartsReact from 'highcharts-react-official'
-import { FC, useMemo } from 'react'
+import * as Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
+import { FC, useMemo } from 'react';
 
-import baseChartOptions from './helpers/baseChartSettings'
+import baseChartOptions from './helpers/baseChartSettings';
 
-type Props = HighchartsReact.Props
+type Props = HighchartsReact.Props;
 
 const BaseChart: FC<Props> = ({ options, ...rest }) => {
 	const mergedOptions = useMemo(
@@ -26,7 +26,7 @@ const BaseChart: FC<Props> = ({ options, ...rest }) => {
 			yAxis: { ...(baseChartOptions?.yAxis || {}), ...(options?.yAxis || {}) }
 		}),
 		[options]
-	)
+	);
 
 	return (
 		<HighchartsReact
@@ -34,7 +34,7 @@ const BaseChart: FC<Props> = ({ options, ...rest }) => {
 			options={mergedOptions}
 			{...rest}
 		/>
-	)
-}
+	);
+};
 
-export default BaseChart
+export default BaseChart;

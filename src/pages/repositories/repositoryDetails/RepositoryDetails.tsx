@@ -1,9 +1,9 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import BaseContainer from '@components/layouts/containers/BaseContainer/BaseContainer'
+import BaseContainer from '@components/layouts/containers/BaseContainer/BaseContainer';
 
-import { RepositoryDetails } from '@modules/repositories/presentation/repositoryDetails'
-import { WeeklyCommitCountChart } from '@modules/repositories/presentation/weeklyCommitCountChart'
+import { RepositoryDetails } from '@modules/repositories/presentation/repositoryDetails';
+import { WeeklyCommitCountChart } from '@modules/repositories/presentation/weeklyCommitCountChart';
 
 const RepositoryDetailsPage: FC = () => {
 	return (
@@ -11,7 +11,7 @@ const RepositoryDetailsPage: FC = () => {
 			<RepositoryDetails />
 			<WeeklyCommitCountChart />
 		</BaseContainer>
-	)
-}
+	);
+};
 
-export default RepositoryDetailsPage
+export default RepositoryDetailsPage;

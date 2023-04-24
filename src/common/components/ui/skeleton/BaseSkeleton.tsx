@@ -1,9 +1,9 @@
-import { FC } from 'react'
-import RLSkeleton, { SkeletonProps } from 'react-loading-skeleton'
+import { FC } from 'react';
+import RLSkeleton, { SkeletonProps } from 'react-loading-skeleton';
 
-import classNames from '@utils/helpers/classNames'
+import classNames from '@utils/helpers/classNames';
 
-import styles from './BaseSkeleton.module.scss'
+import styles from './BaseSkeleton.module.scss';
 
 const BaseSkeleton: FC<SkeletonProps> = ({ className, ...rest }) => {
 	return (
@@ -11,7 +11,7 @@ const BaseSkeleton: FC<SkeletonProps> = ({ className, ...rest }) => {
 			className={classNames(styles['base-skeleton'], className)}
 			{...rest}
 		/>
-	)
-}
+	);
+};
 
-export default BaseSkeleton
+export default BaseSkeleton;

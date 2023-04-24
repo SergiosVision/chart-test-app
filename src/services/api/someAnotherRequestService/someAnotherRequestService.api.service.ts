@@ -1,11 +1,11 @@
-import IAPI from '../interfaces/api'
+import IAPI from '../interfaces/api';
 
 export class SomeAnotherRequestService implements IAPI {
 	async http<T>() {
-		return {} as T
+		return {} as T;
 	}
 }
 
-const someAnotherRequestService = new SomeAnotherRequestService()
+const someAnotherRequestService = new SomeAnotherRequestService();
 
-export default someAnotherRequestService
+export default someAnotherRequestService;

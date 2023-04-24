@@ -1,46 +1,46 @@
-import { makeObservable, observable } from 'mobx'
+import { makeObservable, observable } from 'mobx';
 
-import { ValueOrNull } from '@common/types/interfaces/common'
+import { ValueOrNull } from '@common/types/interfaces/common';
 
-import { IRepositoryDetailsRequestParams } from '../../domain/models/repositoryDetails/interfaces/RepositoryDetailsRequestParams'
-import { RepositoryDetailsOutputModel } from '../../domain/models/repositoryDetails/repositoryDetailsOutput/RepositoryDetailsOutputModel'
-import { GetRepositoryDetailsCase } from '../../domain/usecases/getRepositoryDetailsCase'
+import { IRepositoryDetailsRequestParams } from '../../domain/models/repositoryDetails/interfaces/RepositoryDetailsRequestParams';
+import { RepositoryDetailsOutputModel } from '../../domain/models/repositoryDetails/repositoryDetailsOutput/RepositoryDetailsOutputModel';
+import { GetRepositoryDetailsCase } from '../../domain/usecases/getRepositoryDetailsCase';
 
 interface UseCases {
-	getRepositoryDetailsCase: GetRepositoryDetailsCase
+	getRepositoryDetailsCase: GetRepositoryDetailsCase;
 }
 
 export class RepositoryDetailsViewModel {
-	private readonly useCases: ValueOrNull<UseCases> = null
+	private readonly useCases: ValueOrNull<UseCases> = null;
 
-	public isLoading = false
-	public data: ValueOrNull<RepositoryDetailsOutputModel> = null
+	public isLoading = false;
+	public data: ValueOrNull<RepositoryDetailsOutputModel> = null;
 
 	constructor(useCases: UseCases) {
-		this.useCases = useCases
+		this.useCases = useCases;
 
 		makeObservable(this, {
 			isLoading: observable,
 			data: observable
-		})
+		});
 	}
 
 	async getRepositoryDetails(
 		params: IRepositoryDetailsRequestParams
 	): Promise<void> {
-		this.isLoading = true
+		this.isLoading = true;
 
 		try {
 			const response =
 				await this.useCases?.getRepositoryDetailsCase.getRepositoryDetails(
 					params
-				)
+				);
 
 			if (response) {
-				this.data = response
+				this.data = response;
 			}
 		} finally {
-			this.isLoading = false
+			this.isLoading = false;
 		}
 	}
 }

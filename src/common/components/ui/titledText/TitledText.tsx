@@ -1,18 +1,18 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode } from 'react';
 
-import BaseText from '@components/ui/typography/baseText/BaseText'
-import TextBody from '@components/ui/typography/textBody/TextBody'
+import BaseText from '@components/ui/typography/baseText/BaseText';
+import TextBody from '@components/ui/typography/textBody/TextBody';
 
-import classNames from '@utils/helpers/classNames'
+import classNames from '@utils/helpers/classNames';
 
-import styles from './TitledText.module.scss'
+import styles from './TitledText.module.scss';
 
 interface Props {
-	title?: ReactNode
-	subTitle?: ReactNode
-	className?: string
-	classNameTitle?: string
-	classNameSubtitle?: string
+	title?: ReactNode;
+	subTitle?: ReactNode;
+	className?: string;
+	classNameTitle?: string;
+	classNameSubtitle?: string;
 }
 
 const TitledText: FC<Props> = ({
@@ -36,7 +36,7 @@ const TitledText: FC<Props> = ({
 				{subTitle || '-'}
 			</BaseText>
 		</div>
-	)
-}
+	);
+};
 
-export default TitledText
+export default TitledText;
