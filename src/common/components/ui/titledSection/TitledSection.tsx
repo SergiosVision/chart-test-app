@@ -1,16 +1,16 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode } from 'react';
 
-import Text2xl from '@components/ui/typography/text2xl/Text2xl'
+import Text2xl from '@components/ui/typography/text2xl/Text2xl';
 
-import classNames from '@utils/helpers/classNames'
+import classNames from '@utils/helpers/classNames';
 
-import styles from './TitledSection.module.scss'
+import styles from './TitledSection.module.scss';
 
 interface Props {
-	title: ReactNode
-	className?: string
-	classNameTitle?: string
-	children?: ReactNode
+	title: ReactNode;
+	className?: string;
+	classNameTitle?: string;
+	children?: ReactNode;
 }
 
 const TitledSection: FC<Props> = ({
@@ -30,7 +30,7 @@ const TitledSection: FC<Props> = ({
 			)}
 			{children}
 		</section>
-	)
-}
+	);
+};
 
-export default TitledSection
+export default TitledSection;

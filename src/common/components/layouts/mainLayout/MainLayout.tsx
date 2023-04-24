@@ -1,8 +1,8 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 
-import styles from './MainLayout.module.scss'
-import Header from './header/Header'
+import styles from './MainLayout.module.scss';
+import Header from './header/Header';
 
 const MainLayout: React.FC = () => {
 	return (
@@ -12,7 +12,7 @@ const MainLayout: React.FC = () => {
 				<Outlet />
 			</main>
 		</div>
-	)
-}
+	);
+};
 
-export default MainLayout
+export default MainLayout;

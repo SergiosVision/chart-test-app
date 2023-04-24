@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-import BaseContainer from '@components/layouts/containers/BaseContainer/BaseContainer'
+import BaseContainer from '@components/layouts/containers/BaseContainer/BaseContainer';
 
-import { RepositoriesList } from '@modules/repositories/presentation/repositoriesList'
+import { RepositoriesList } from '@modules/repositories/presentation/repositoriesList';
 
-import Text3xl from '@/common/components/ui/typography/text3xl/Text3xl'
+import Text3xl from '@/common/components/ui/typography/text3xl/Text3xl';
 
 const Repositories: React.FC = () => {
 	return (
@@ -14,7 +14,7 @@ const Repositories: React.FC = () => {
 			</Text3xl>
 			<RepositoriesList />
 		</BaseContainer>
-	)
-}
+	);
+};
 
-export default Repositories
+export default Repositories;

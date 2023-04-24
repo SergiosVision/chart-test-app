@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "node": true
     },
     "extends": [
         "eslint:recommended",
@@ -26,6 +27,7 @@
         "@typescript-eslint/no-explicit-any": "off",
         "react-hooks/exhaustive-deps": "off",
         "@typescript-eslint/ban-types": "off",
-        "@typescript-eslint/no-empty-interface": "off"
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/no-var-requires": "off"
     }
 }

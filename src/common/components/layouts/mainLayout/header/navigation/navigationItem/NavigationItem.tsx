@@ -1,12 +1,12 @@
-import { FC, ReactNode } from 'react'
-import { NavLink, NavLinkProps } from 'react-router-dom'
+import { FC, ReactNode } from 'react';
+import { NavLink, NavLinkProps } from 'react-router-dom';
 
-import classNames from '@utils/helpers/classNames'
+import classNames from '@utils/helpers/classNames';
 
-import styles from './NavigationItem.module.scss'
+import styles from './NavigationItem.module.scss';
 
 interface Props extends NavLinkProps {
-	children?: ReactNode
+	children?: ReactNode;
 }
 
 const NavigationItem: FC<Props> = ({ children, ...rest }) => {
@@ -24,7 +24,7 @@ const NavigationItem: FC<Props> = ({ children, ...rest }) => {
 				{children}
 			</NavLink>
 		</li>
-	)
-}
+	);
+};
 
-export default NavigationItem
+export default NavigationItem;

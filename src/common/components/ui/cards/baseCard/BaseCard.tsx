@@ -1,17 +1,17 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode } from 'react';
 
-import classNames from '@utils/helpers/classNames'
+import classNames from '@utils/helpers/classNames';
 
-import styles from './BaseCard.module.scss'
+import styles from './BaseCard.module.scss';
 
 interface Props {
-	children: ReactNode
-	className?: string
+	children: ReactNode;
+	className?: string;
 }
 const BaseCard: FC<Props> = ({ children, className }) => {
 	return (
 		<div className={classNames(styles['base-card'], className)}>{children}</div>
-	)
-}
+	);
+};
 
-export default BaseCard
+export default BaseCard;

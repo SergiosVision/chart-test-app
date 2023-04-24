@@ -1,3 +1,3 @@
-import RepositoryDetails from './Provider'
+import RepositoryDetails from './Provider';
 
-export { RepositoryDetails }
+export { RepositoryDetails };

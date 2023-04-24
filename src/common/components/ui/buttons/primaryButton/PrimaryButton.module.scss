@@ -5,7 +5,7 @@
     @apply cursor-pointer;
 
     &:hover {
-      @apply opacity-[0.7];
+      opacity: .7;
     }
   }
 }

@@ -1,25 +1,25 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import BaseErrorText from '@components/ui/typography/BaseErrorText'
+import BaseErrorText from '@components/ui/typography/baseErrorText/BaseErrorText';
 
-import { RepositoriesListOutputModel } from '../../../../../domain/models/repositoriesList/repositoriesListOutput/RepositoriesListOutputModel'
-import Card from '../card/Card'
-import Skeletons from '../skeletons/Skeletons'
+import { RepositoriesListOutputModel } from '../../../../../domain/models/repositoriesList/repositoriesListOutput/RepositoriesListOutputModel';
+import Card from '../card/Card';
+import Skeletons from '../skeletons/Skeletons';
 
-import styles from './List.module.scss'
+import styles from './List.module.scss';
 
 interface Props {
-	isLoading: boolean
-	list: RepositoriesListOutputModel[]
+	isLoading: boolean;
+	list: RepositoriesListOutputModel[];
 }
 
 const List: FC<Props> = ({ list, isLoading }) => {
 	if (isLoading) {
-		return <Skeletons />
+		return <Skeletons />;
 	}
 
 	if (!list.length) {
-		return <BaseErrorText>List of repositories is empty</BaseErrorText>
+		return <BaseErrorText>List of repositories is empty</BaseErrorText>;
 	}
 
 	return (
@@ -35,7 +35,7 @@ const List: FC<Props> = ({ list, isLoading }) => {
 				/>
 			))}
 		</div>
-	)
-}
+	);
+};
 
-export default List
+export default List;

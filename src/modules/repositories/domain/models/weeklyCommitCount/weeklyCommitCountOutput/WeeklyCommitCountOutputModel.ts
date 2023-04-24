@@ -1,22 +1,22 @@
-import { array, number, object } from 'yup'
+import { array, number, object } from 'yup';
 
-import { Model } from '@utils/model'
+import { Model } from '@utils/model';
 
-import { IWeeklyCommitCountOutput } from './WeeklyCommitCountOutput'
+import { IWeeklyCommitCountOutput } from './WeeklyCommitCountOutput';
 
 export class WeeklyCommitCountOutputModel
 	extends Model
 	implements IWeeklyCommitCountOutput
 {
-	all: IWeeklyCommitCountOutput['all'] = []
-	owner: IWeeklyCommitCountOutput['owner'] = []
+	all: IWeeklyCommitCountOutput['all'] = [];
+	owner: IWeeklyCommitCountOutput['owner'] = [];
 
 	constructor(data: Partial<IWeeklyCommitCountOutput>) {
-		super()
+		super();
 
 		if (data) {
-			this.all = data?.all || []
-			this.owner = data?.owner || []
+			this.all = data?.all || [];
+			this.owner = data?.owner || [];
 		}
 	}
 
@@ -24,6 +24,6 @@ export class WeeklyCommitCountOutputModel
 		return object().shape({
 			all: array().of(number()),
 			owner: array().of(number())
-		})
+		});
 	}
 }

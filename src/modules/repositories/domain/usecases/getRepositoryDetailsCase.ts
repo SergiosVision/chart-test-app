@@ -1,25 +1,25 @@
-import { ValueOrNull } from '@common/types/interfaces/common'
+import { ValueOrNull } from '@common/types/interfaces/common';
 
-import { RepositoryImpl } from '../../data/repository'
-import { GetRepositoryDetailsBaseError } from '../../helpers/exceptions'
-import { IRepositoryDetailsRequestParams } from '../models/repositoryDetails/interfaces/RepositoryDetailsRequestParams'
-import { RepositoryDetailsOutputModel } from '../models/repositoryDetails/repositoryDetailsOutput/RepositoryDetailsOutputModel'
-import { RepositoryDetailsResponseModel } from '../models/repositoryDetails/repositoryDetailsResponse/RepositoryDetailsResponseModel'
+import { RepositoryImpl } from '../../data/repository';
+import { GetRepositoryDetailsBaseError } from '../../helpers/exceptions';
+import { IRepositoryDetailsRequestParams } from '../models/repositoryDetails/interfaces/RepositoryDetailsRequestParams';
+import { RepositoryDetailsOutputModel } from '../models/repositoryDetails/repositoryDetailsOutput/RepositoryDetailsOutputModel';
+import { RepositoryDetailsResponseModel } from '../models/repositoryDetails/repositoryDetailsResponse/RepositoryDetailsResponseModel';
 
 export class GetRepositoryDetailsCase {
-	private repository: ValueOrNull<RepositoryImpl> = null
+	private repository: ValueOrNull<RepositoryImpl> = null;
 
 	constructor(repo: RepositoryImpl) {
-		this.repository = repo
+		this.repository = repo;
 	}
 
 	async getRepositoryDetails(params: IRepositoryDetailsRequestParams) {
 		try {
-			const response = await this.repository?.getRepositoryDetails(params)
+			const response = await this.repository?.getRepositoryDetails(params);
 
-			return this.convertRepositoryDetailsData(response)
+			return this.convertRepositoryDetailsData(response);
 		} catch (error: any) {
-			throw new GetRepositoryDetailsBaseError(error?.message)
+			throw new GetRepositoryDetailsBaseError(error?.message);
 		}
 	}
 
@@ -36,6 +36,6 @@ export class GetRepositoryDetailsCase {
 			description: data?.description,
 			owner: data?.owner,
 			license: data?.license
-		})
+		});
 	}
 }

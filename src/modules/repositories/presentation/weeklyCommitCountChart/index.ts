@@ -1,3 +1,3 @@
-import WeeklyCommitCountChart from './Provider'
+import WeeklyCommitCountChart from './Provider';
 
-export { WeeklyCommitCountChart }
+export { WeeklyCommitCountChart };

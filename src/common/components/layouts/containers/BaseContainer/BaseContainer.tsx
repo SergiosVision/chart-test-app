@@ -1,12 +1,12 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode } from 'react';
 
-import classNames from '@utils/helpers/classNames'
+import classNames from '@utils/helpers/classNames';
 
-import styles from './BaseContainer.module.scss'
+import styles from './BaseContainer.module.scss';
 
 interface Props {
-	children?: ReactNode
-	className?: string
+	children?: ReactNode;
+	className?: string;
 }
 
 const BaseContainer: FC<Props> = ({ children, className }) => {
@@ -14,7 +14,7 @@ const BaseContainer: FC<Props> = ({ children, className }) => {
 		<div className={classNames(styles['base-container'], className)}>
 			{children}
 		</div>
-	)
-}
+	);
+};
 
-export default BaseContainer
+export default BaseContainer;

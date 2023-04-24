@@ -1,10 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import routes from '@common/router/routes'
+import routes from '@common/router/routes';
 
-import NavigationItem from './navigationItem/NavigationItem'
-
-import styles from './Navigation.module.scss'
+import styles from './Navigation.module.scss';
+import NavigationItem from './navigationItem/NavigationItem';
 
 const Navigation: React.FC = () => {
 	return (
@@ -13,7 +12,7 @@ const Navigation: React.FC = () => {
 				<NavigationItem to={routes.home}>Repositories</NavigationItem>
 			</ul>
 		</nav>
-	)
-}
+	);
+};
 
-export default Navigation
+export default Navigation;

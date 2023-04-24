@@ -1,16 +1,16 @@
-import { StringOrNull, ValueOrNull } from '@common/types/interfaces/common'
+import { StringOrNull, ValueOrNull } from '@common/types/interfaces/common';
 
-import { ILicense } from '../../interfaces/license'
-import { IOwner } from '../../interfaces/owner'
+import { ILicense } from '../../interfaces/license';
+import { IOwner } from '../../interfaces/owner';
 
 export interface IRepositoryDetailsResponse {
-	id: StringOrNull
-	name: StringOrNull
-	private: boolean
-	watchers: number
-	has_issues: boolean
-	has_projects: boolean
-	description: StringOrNull
-	owner: ValueOrNull<IOwner>
-	license: ValueOrNull<ILicense>
+	id: StringOrNull;
+	name: StringOrNull;
+	private: boolean;
+	watchers: number;
+	has_issues: boolean;
+	has_projects: boolean;
+	description: StringOrNull;
+	owner: ValueOrNull<IOwner>;
+	license: ValueOrNull<ILicense>;
 }

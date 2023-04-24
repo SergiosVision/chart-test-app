@@ -1,3 +1,3 @@
-export type ValueOrNull<T> = T | null
+export type ValueOrNull<T> = T | null;
 
-export type StringOrNull = ValueOrNull<string>
+export type StringOrNull = ValueOrNull<string>;

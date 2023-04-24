@@ -1,3 +1,3 @@
-import RepositoriesList from './Provider'
+import RepositoriesList from './Provider';
 
-export { RepositoriesList }
+export { RepositoriesList };

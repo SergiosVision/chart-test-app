@@ -1,19 +1,19 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
-import TitledSection from '@common/components/ui/titledSection/TitledSection'
-import { ValueOrNull } from '@common/types/interfaces/common'
+import TitledSection from '@common/components/ui/titledSection/TitledSection';
+import { ValueOrNull } from '@common/types/interfaces/common';
 
-import TitledText from '@components/ui/titledText/TitledText'
+import TitledText from '@components/ui/titledText/TitledText';
 
-import formatBooleanToText from '@utils/formatters/formatBooleanToText'
+import formatBooleanToText from '@utils/formatters/formatBooleanToText';
 
-import { RepositoryDetailsOutputModel } from '../../../../../domain/models/repositoryDetails/repositoryDetailsOutput/RepositoryDetailsOutputModel'
-import SectionContentWrapper from '../../sectionContentWrapper/SectionContentWrapper'
-import Skeletons from '../skeletons/Skeletons'
+import { RepositoryDetailsOutputModel } from '../../../../../domain/models/repositoryDetails/repositoryDetailsOutput/RepositoryDetailsOutputModel';
+import SectionContentWrapper from '../../sectionContentWrapper/SectionContentWrapper';
+import Skeletons from '../skeletons/Skeletons';
 
 interface Props {
-	isLoading: boolean
-	data: ValueOrNull<RepositoryDetailsOutputModel>
+	isLoading: boolean;
+	data: ValueOrNull<RepositoryDetailsOutputModel>;
 }
 
 const CommonInfo: FC<Props> = ({ data, isLoading }) => {
@@ -45,7 +45,7 @@ const CommonInfo: FC<Props> = ({ data, isLoading }) => {
 				)}
 			</SectionContentWrapper>
 		</TitledSection>
-	)
-}
+	);
+};
 
-export default CommonInfo
+export default CommonInfo;

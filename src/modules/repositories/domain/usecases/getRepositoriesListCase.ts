@@ -1,24 +1,24 @@
-import { ValueOrNull } from '@common/types/interfaces/common'
+import { ValueOrNull } from '@common/types/interfaces/common';
 
-import { RepositoryImpl } from '../../data/repository'
-import { GetRepositoriesListBaseError } from '../../helpers/exceptions'
-import { RepositoriesListOutputModel } from '../models/repositoriesList/repositoriesListOutput/RepositoriesListOutputModel'
-import { RepositoriesListResponseModel } from '../models/repositoriesList/repositoriesListResponse/RepositoriesListResponseModel'
+import { RepositoryImpl } from '../../data/repository';
+import { GetRepositoriesListBaseError } from '../../helpers/exceptions';
+import { RepositoriesListOutputModel } from '../models/repositoriesList/repositoriesListOutput/RepositoriesListOutputModel';
+import { RepositoriesListResponseModel } from '../models/repositoriesList/repositoriesListResponse/RepositoriesListResponseModel';
 
 export class GetRepositoriesListCase {
-	private repository: ValueOrNull<RepositoryImpl> = null
+	private repository: ValueOrNull<RepositoryImpl> = null;
 
 	constructor(repo: RepositoryImpl) {
-		this.repository = repo
+		this.repository = repo;
 	}
 
 	async getRepositoriesList() {
 		try {
-			const response = await this.repository?.getRepositoriesList()
+			const response = await this.repository?.getRepositoriesList();
 
-			return this.convertRepositoriesListData(response || [])
+			return this.convertRepositoriesListData(response || []);
 		} catch (error: any) {
-			throw new GetRepositoriesListBaseError(error?.message)
+			throw new GetRepositoriesListBaseError(error?.message);
 		}
 	}
 
@@ -35,6 +35,6 @@ export class GetRepositoriesListCase {
 					owner: item?.owner,
 					watchers: item?.watchers
 				})
-		)
+		);
 	}
 }

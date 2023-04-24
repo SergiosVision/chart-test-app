@@ -1,4 +1,4 @@
 export interface IBaseRequestParamsForDetails {
-	owner: string
-	repo: string
+	owner: string;
+	repo: string;
 }

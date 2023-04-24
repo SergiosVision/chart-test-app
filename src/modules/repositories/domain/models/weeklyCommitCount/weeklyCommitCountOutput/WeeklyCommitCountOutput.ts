@@ -1,4 +1,4 @@
 export interface IWeeklyCommitCountOutput {
-	all: number[]
-	owner: number[]
+	all: number[];
+	owner: number[];
 }
