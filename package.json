@@ -30,7 +30,9 @@
 		"build": "craco build",
 		"eject": "craco eject",
 		"lint": "eslint . --ext .ts,.tsx",
-		"docker-build": "docker-compose -f docker-compose.prod.yml build"
+		"docker:build": "docker-compose -f docker-compose.prod.yml build && docker create -p 80:80 --name chart-test-app-prod chart-test-app-prod",
+		"docker:start": "docker container start chart-test-app-prod",
+		"docker:stop": "docker container stop chart-test-app-prod"
 	},
 	"eslintConfig": {
 		"extends": [
