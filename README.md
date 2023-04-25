@@ -40,11 +40,11 @@ Creates a docker image named `chart-test-app-prod`
 
 Creates a container named `prod`
 
-### `docker.start`
+### `docker:start`
 
 Starts a docker container named `prod`
 
-### `docker.stop`
+### `docker:stop`
 
 Stops the docker container named `prod`
 
