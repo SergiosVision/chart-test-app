@@ -7,9 +7,7 @@ import Text8xl from '@components/ui/typography/text8xl/Text8xl';
 const NotFound: React.FC = () => {
 	return (
 		<BaseContainer className='flex flex-col justify-center items-center flex-1'>
-			<Text8xl className='text-8xl text-primary text uppercase mb-4'>
-				404
-			</Text8xl>
+			<Text8xl className='text-primary text uppercase mb-4'>404</Text8xl>
 			<Text2xl as='p'>Nothing found</Text2xl>
 		</BaseContainer>
 	);
