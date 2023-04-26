@@ -3,14 +3,14 @@ import { NavLink } from 'react-router-dom';
 
 import routes from '@common/router/routes';
 
-import TextBody from '@components/ui/typography/textBody/TextBody';
+import Text from '@components/ui/typography/text/Text';
 
 import styles from './Logo.module.scss';
 
 const Logo: React.FC = () => {
 	return (
 		<NavLink to={routes.home} className={styles.logo}>
-			<TextBody>Test Chart App</TextBody>
+			<Text>Test Chart App</Text>
 		</NavLink>
 	);
 };

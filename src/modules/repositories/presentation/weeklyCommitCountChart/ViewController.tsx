@@ -4,7 +4,7 @@ import { FC, useEffect, useMemo } from 'react';
 import { useErrorBoundary } from 'react-error-boundary';
 import { useParams } from 'react-router-dom';
 
-import WeeklyCommitCountChartView from './view/WeeklyCommitCountChartView';
+import View from './view/View';
 import { WeeklyCommitCountChartViewModel } from './viewModel';
 
 interface Props {
@@ -17,13 +17,12 @@ const ViewController: FC<Props> = ({ viewModel }) => {
 
 	useEffect(() => {
 		(async () => {
-			try {
-				await viewModel.getWeeklyCommitCount({
-					repo: params?.repo || '',
-					owner: params?.owner || ''
-				});
-			} catch (error) {
-				showBoundary(error);
+			if (params.owner && params.repo) {
+				try {
+					await viewModel.getWeeklyCommitCount(params.owner, params.repo);
+				} catch (error) {
+					showBoundary(error);
+				}
 			}
 		})();
 	}, []);
@@ -37,12 +36,7 @@ const ViewController: FC<Props> = ({ viewModel }) => {
 		[viewModel.data]
 	) as SeriesOptionsType[];
 
-	return (
-		<WeeklyCommitCountChartView
-			chartData={chartData}
-			isLoading={viewModel.isLoading}
-		/>
-	);
+	return <View chartData={chartData} isLoading={viewModel.isLoading} />;
 };
 
 export default observer(ViewController);

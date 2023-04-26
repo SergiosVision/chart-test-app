@@ -1,74 +1,96 @@
-import IAPI from '@services/api/interfaces/api';
+import { GithubApiService } from '@services/api/github/github.api.service';
 
-import { ValueOrNull } from '@common/types/interfaces/common';
+import { RepositoriesListModel } from '../domain/models/RepositoriesListModel';
+import { RepositoryDetailsModel } from '../domain/models/RepositoryDetailsModel';
+import { WeeklyCommitCountModel } from '../domain/models/WeeklyCommitCountModel';
+import { RepositoryDefaultError } from '../exceptions/repositoryDefaultError';
+import { RepositoryNotFound } from '../exceptions/repositoryNotFound';
 
-import { IRepositoriesListResponseModel } from '../domain/models/repositoriesList/repositoriesListResponse/RepositoriesListResponse';
-import { RepositoriesListResponseModel } from '../domain/models/repositoriesList/repositoriesListResponse/RepositoriesListResponseModel';
-import { IRepositoryDetailsRequestParams } from '../domain/models/repositoryDetails/interfaces/RepositoryDetailsRequestParams';
-import { IRepositoryDetailsResponse } from '../domain/models/repositoryDetails/repositoryDetailsResponse/RepositoryDetailsResponse';
-import { RepositoryDetailsResponseModel } from '../domain/models/repositoryDetails/repositoryDetailsResponse/RepositoryDetailsResponseModel';
-import IWeeklyCommitCountRequestParams from '../domain/models/weeklyCommitCount/interfaces/WeeklyCommitCountRequestParams';
-import { IWeeklyCommitCountResponse } from '../domain/models/weeklyCommitCount/weeklyCommitCountResponse/WeeklyCommitCountResponse';
-import { WeeklyCommitCountResponseModel } from '../domain/models/weeklyCommitCount/weeklyCommitCountResponse/WeeklyCommitCountResponseModel';
+interface IRepositoriesRepository {
+	getList(): Promise<RepositoriesListModel[]>;
 
-export class RepositoryImpl {
-	private API: ValueOrNull<IAPI> = null;
+	getDetails(owner: string, repo: string): Promise<RepositoryDetailsModel>;
 
-	constructor(api: IAPI) {
-		this.API = api;
+	getWeeklyCommitCount(
+		owner: string,
+		repo: string
+	): Promise<WeeklyCommitCountModel>;
+}
+
+export class RepositoriesRepositoryImpl implements IRepositoriesRepository {
+	constructor(private readonly api: GithubApiService) {}
+
+	async getList() {
+		try {
+			const response = await this.api.getRepositories();
+
+			return response.map(
+				item =>
+					new RepositoriesListModel({
+						id: item.id,
+						name: item.name,
+						private: item.private,
+						description: item.description,
+						owner: item.owner,
+						watchers: item.watchers
+					})
+			);
+		} catch (error: any) {
+			switch (error.status) {
+				case 404:
+					throw new RepositoryNotFound('Organization repositories not found');
+				default:
+					throw new RepositoryDefaultError(
+						'Cannot get list of repositories. Try again later'
+					);
+			}
+		}
 	}
 
-	async getRepositoriesList(): Promise<IRepositoriesListResponseModel[]> {
-		const response = await this.API?.http<IRepositoriesListResponseModel[]>({
-			method: 'GET',
-			url: '/orgs/facebook/repos'
-		});
+	async getDetails(owner: string, repo: string) {
+		try {
+			const response = await this.api.getRepositoryDetails(owner, repo);
 
-		return (response || []).map(
-			item =>
-				new RepositoriesListResponseModel({
-					id: item?.id,
-					name: item?.name,
-					private: item?.private,
-					description: item?.description,
-					owner: item?.owner,
-					watchers: item?.watchers
-				})
-		);
+			return new RepositoryDetailsModel({
+				id: response.id,
+				name: response.name,
+				private: response.private,
+				watchers: response.watchers,
+				has_issues: response.has_issues,
+				has_projects: response.has_projects,
+				description: response.description,
+				owner: response.owner,
+				license: response.license
+			});
+		} catch (error: any) {
+			switch (error.status) {
+				case 404:
+					throw new RepositoryNotFound('Repository not found');
+				default:
+					throw new RepositoryDefaultError(
+						'Cannot get repository details. Try again later'
+					);
+			}
+		}
 	}
 
-	async getRepositoryDetails(
-		params: IRepositoryDetailsRequestParams
-	): Promise<RepositoryDetailsResponseModel> {
-		const response = await this.API?.http<IRepositoryDetailsResponse>({
-			method: 'GET',
-			url: `/repos/${params?.owner}/${params.repo}`
-		});
+	async getWeeklyCommitCount(owner: string, repo: string) {
+		try {
+			const response = await this.api.getWeeklyCommitCount(owner, repo);
 
-		return new RepositoryDetailsResponseModel({
-			id: response?.id,
-			name: response?.name,
-			private: response?.private,
-			watchers: response?.watchers,
-			has_issues: response?.has_issues,
-			has_projects: response?.has_projects,
-			description: response?.description,
-			owner: response?.owner,
-			license: response?.license
-		});
-	}
-
-	async getWeeklyCommitCount(
-		params: IWeeklyCommitCountRequestParams
-	): Promise<WeeklyCommitCountResponseModel> {
-		const response = await this.API?.http<IWeeklyCommitCountResponse>({
-			method: 'GET',
-			url: `/repos/${params?.owner}/${params.repo}/stats/participation`
-		});
-
-		return new WeeklyCommitCountResponseModel({
-			all: response?.all,
-			owner: response?.owner
-		});
+			return new WeeklyCommitCountModel({
+				all: response.all,
+				owner: response.owner
+			});
+		} catch (error: any) {
+			switch (error.status) {
+				case 404:
+					throw new RepositoryNotFound('Commits count not found');
+				default:
+					throw new RepositoryDefaultError(
+						'Cannot get weekly commits count. Try again later'
+					);
+			}
+		}
 	}
 }

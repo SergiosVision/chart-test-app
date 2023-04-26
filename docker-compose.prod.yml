@@ -1,9 +1,0 @@
-version: "3.8"
-
-services:
-  app:
-    container_name: chart-test-app-prod
-    image: chart-test-app-prod
-    build:
-      context: .
-      target: production

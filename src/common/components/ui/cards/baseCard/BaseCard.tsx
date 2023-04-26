@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import classNames from '@utils/helpers/classNames';
+import classNames from '@utils/classNames';
 
 import styles from './BaseCard.module.scss';
 
