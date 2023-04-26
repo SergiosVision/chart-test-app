@@ -7,7 +7,6 @@ module.exports = {
 				base: '#ffffff',
 				primary: '#FF7652',
 				purple: '#6C4ECF',
-				'light-blue': '#32A8E2',
 				background: '#1f1d2b',
 				backgroundSecondary: '#424244'
 			},
@@ -32,4 +31,4 @@ module.exports = {
 		}
 	},
 	plugins: []
-}
+};

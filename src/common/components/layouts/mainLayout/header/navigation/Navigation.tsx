@@ -3,13 +3,15 @@ import React from 'react';
 import routes from '@common/router/routes';
 
 import styles from './Navigation.module.scss';
-import NavigationItem from './navigationItem/NavigationItem';
+import Link from './link/Link';
 
 const Navigation: React.FC = () => {
 	return (
 		<nav className={styles.navigation}>
 			<ul>
-				<NavigationItem to={routes.home}>Repositories</NavigationItem>
+				<li className='inline-flex'>
+					<Link to={routes.home}>Repositories</Link>
+				</li>
 			</ul>
 		</nav>
 	);

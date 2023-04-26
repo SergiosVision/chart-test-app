@@ -4,13 +4,13 @@ import githubApiService from '@services/api/github/github.api.service';
 
 import ErrorBoundaryWrapper from '@components/errors/ErrorBoundaryWrapper';
 
-import { RepositoryImpl } from '../../data/repository';
-import { GetWeeklyCommitCountCase } from '../../domain/usecases/getWeeklyCommitCountCase';
+import { RepositoriesRepositoryImpl } from '../../data/repository';
+import { GetWeeklyCommitCountCase } from '../../domain/usecases/getWeeklyCommitCount';
 
 import ViewController from './ViewController';
 import { WeeklyCommitCountChartViewModel } from './viewModel';
 
-const repository = new RepositoryImpl(githubApiService);
+const repository = new RepositoriesRepositoryImpl(githubApiService);
 const getWeeklyCommitCountCase = new GetWeeklyCommitCountCase(repository);
 const viewModel = new WeeklyCommitCountChartViewModel({
 	getWeeklyCommitCountCase

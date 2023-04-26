@@ -1,19 +1,18 @@
 import React from 'react';
 
-import BaseContainer from '@components/layouts/containers/BaseContainer/BaseContainer';
+import Container from '@components/layouts/containers/сontainer/Сontainer';
+import TextH3 from '@components/ui/typography/text/TextH3';
 
-import { RepositoriesList } from '@modules/repositories/presentation/repositoriesList';
-
-import Text3xl from '@/common/components/ui/typography/text3xl/Text3xl';
+import { RepositoriesList } from '@modules/repositories/presentation/list';
 
 const Repositories: React.FC = () => {
 	return (
-		<BaseContainer className='flex flex-col w-full gap-6'>
-			<Text3xl className='center text-center uppercase'>
+		<Container className='flex flex-col w-full gap-6'>
+			<TextH3 className='center text-center uppercase'>
 				List of facebook organization repositories
-			</Text3xl>
+			</TextH3>
 			<RepositoriesList />
-		</BaseContainer>
+		</Container>
 	);
 };
 

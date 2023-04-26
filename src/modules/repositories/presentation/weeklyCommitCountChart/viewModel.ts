@@ -1,48 +1,41 @@
-import { makeObservable, observable } from 'mobx';
+import { makeObservable, observable, runInAction } from 'mobx';
 
-import { ValueOrNull } from '@common/types/interfaces/common';
+import { WeeklyCommitCountModel } from '../../domain/models/WeeklyCommitCountModel';
+import { GetWeeklyCommitCountCase } from '../../domain/usecases/getWeeklyCommitCount';
 
-import IWeeklyCommitCountRequestParams from '../../domain/models/weeklyCommitCount/interfaces/WeeklyCommitCountRequestParams';
-import { WeeklyCommitCountOutputModel } from '../../domain/models/weeklyCommitCount/weeklyCommitCountOutput/WeeklyCommitCountOutputModel';
-import { GetWeeklyCommitCountCase } from '../../domain/usecases/getWeeklyCommitCountCase';
-
-interface UseCases {
+type UseCases = {
 	getWeeklyCommitCountCase: GetWeeklyCommitCountCase;
-}
+};
 
 export class WeeklyCommitCountChartViewModel {
-	private readonly useCases: ValueOrNull<UseCases> = null;
-
 	public isLoading = false;
-	public data: WeeklyCommitCountOutputModel = new WeeklyCommitCountOutputModel(
-		{}
-	);
+	public data: WeeklyCommitCountModel = new WeeklyCommitCountModel({});
 
-	constructor(useCases: UseCases) {
-		this.useCases = useCases;
-
+	constructor(private readonly useCases: UseCases) {
 		makeObservable(this, {
 			isLoading: observable,
 			data: observable
 		});
 	}
 
-	async getWeeklyCommitCount(
-		params: IWeeklyCommitCountRequestParams
-	): Promise<void> {
-		this.isLoading = true;
+	async getWeeklyCommitCount(owner: string, repo: string): Promise<void> {
+		runInAction(() => {
+			this.isLoading = true;
+		});
 
 		try {
-			const response =
-				await this.useCases?.getWeeklyCommitCountCase.getWeeklyCommitCount(
-					params
-				);
+			const response = await this.useCases?.getWeeklyCommitCountCase.execute(
+				owner,
+				repo
+			);
 
-			if (response) {
+			runInAction(() => {
 				this.data = response;
-			}
+			});
 		} finally {
-			this.isLoading = false;
+			runInAction(() => {
+				this.isLoading = false;
+			});
 		}
 	}
 }

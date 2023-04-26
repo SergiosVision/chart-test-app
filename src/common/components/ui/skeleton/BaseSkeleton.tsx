@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import RLSkeleton, { SkeletonProps } from 'react-loading-skeleton';
 
-import classNames from '@utils/helpers/classNames';
+import classNames from '@utils/classNames';
 
 import styles from './BaseSkeleton.module.scss';
 
